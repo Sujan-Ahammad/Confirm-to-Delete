@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press Button For Delete</title>
+</head>
+<body>
+
+    <section>
+        <h1 id="head-title">Please Write "CONFIRM" to Delete This Text</h1>
+    </section>
+    <section>
+        <div>
+            <input id="delete-confirm" type="text" placeholder="Write Delete Here">
+            <button id="delete-btn" disabled>Delete</button>
+        </div>
+    </section>
+
+    <script>
+
+
+        document.getElementById('delete-confirm').addEventListener('keyup',function(event){
+            const inputText=event.target.value;
+            const deletebtn=document.getElementById('delete-btn')
+            if(inputText==='CONFIRM'){
+                deletebtn.removeAttribute('disabled');
+
+            }
+            else{
+                deletebtn.setAttribute('disabled',true)
+            }
+            
+        })
+        document.getElementById('delete-btn').addEventListener('click',function(){
+           const headTitle= document.getElementById('head-title');
+           headTitle.style.display='none'
+        })
+        </script>
+</body>
+</html>
